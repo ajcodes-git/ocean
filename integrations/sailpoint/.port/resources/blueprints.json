@@ -1,0 +1,413 @@
+[
+    {
+        "identifier": "identity",
+        "title": "SailPoint Identity",
+        "icon": "User",
+        "schema": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name"
+                },
+                "displayName": {
+                    "type": "string",
+                    "title": "Display Name"
+                },
+                "email": {
+                    "type": "string",
+                    "title": "Email",
+                    "format": "email"
+                },
+                "firstName": {
+                    "type": "string",
+                    "title": "First Name"
+                },
+                "lastName": {
+                    "type": "string",
+                    "title": "Last Name"
+                },
+                "status": {
+                    "type": "string",
+                    "title": "Status",
+                    "enum": ["ACTIVE", "INACTIVE", "PENDING", "LOCKED"]
+                },
+                "lifecycleState": {
+                    "type": "string",
+                    "title": "Lifecycle State"
+                },
+                "manager": {
+                    "type": "string",
+                    "title": "Manager"
+                },
+                "department": {
+                    "type": "string",
+                    "title": "Department"
+                },
+                "jobTitle": {
+                    "type": "string",
+                    "title": "Job Title"
+                },
+                "employeeNumber": {
+                    "type": "string",
+                    "title": "Employee Number"
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "title": "Phone Number"
+                },
+                "isManager": {
+                    "type": "boolean",
+                    "title": "Is Manager"
+                },
+                "isProcessing": {
+                    "type": "boolean",
+                    "title": "Is Processing"
+                },
+                "created": {
+                    "type": "string",
+                    "title": "Created",
+                    "format": "date-time"
+                },
+                "modified": {
+                    "type": "string",
+                    "title": "Modified",
+                    "format": "date-time"
+                }
+            },
+            "required": ["name"]
+        },
+        "relations": {
+            "manager": {
+                "target": "identity",
+                "title": "Manager"
+            }
+        }
+    },
+    {
+        "identifier": "account",
+        "title": "SailPoint Account",
+        "icon": "Key",
+        "schema": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name"
+                },
+                "nativeIdentity": {
+                    "type": "string",
+                    "title": "Native Identity"
+                },
+                "sourceId": {
+                    "type": "string",
+                    "title": "Source ID"
+                },
+                "identityId": {
+                    "type": "string",
+                    "title": "Identity ID"
+                },
+                "uuid": {
+                    "type": "string",
+                    "title": "UUID"
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "title": "Disabled"
+                },
+                "locked": {
+                    "type": "boolean",
+                    "title": "Locked"
+                },
+                "privileged": {
+                    "type": "boolean",
+                    "title": "Privileged"
+                },
+                "systemAccount": {
+                    "type": "boolean",
+                    "title": "System Account"
+                },
+                "uncorrelated": {
+                    "type": "boolean",
+                    "title": "Uncorrelated"
+                },
+                "created": {
+                    "type": "string",
+                    "title": "Created",
+                    "format": "date-time"
+                },
+                "modified": {
+                    "type": "string",
+                    "title": "Modified",
+                    "format": "date-time"
+                }
+            },
+            "required": ["name", "nativeIdentity", "sourceId"]
+        },
+        "relations": {
+            "identity": {
+                "target": "identity",
+                "title": "Identity"
+            },
+            "source": {
+                "target": "source",
+                "title": "Source"
+            }
+        }
+    },
+    {
+        "identifier": "entitlement",
+        "title": "SailPoint Entitlement",
+        "icon": "Shield",
+        "schema": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name"
+                },
+                "attribute": {
+                    "type": "string",
+                    "title": "Attribute"
+                },
+                "value": {
+                    "type": "string",
+                    "title": "Value"
+                },
+                "schema": {
+                    "type": "string",
+                    "title": "Schema"
+                },
+                "sourceId": {
+                    "type": "string",
+                    "title": "Source ID"
+                },
+                "privileged": {
+                    "type": "boolean",
+                    "title": "Privileged"
+                },
+                "cloudGoverned": {
+                    "type": "boolean",
+                    "title": "Cloud Governed"
+                },
+                "created": {
+                    "type": "string",
+                    "title": "Created",
+                    "format": "date-time"
+                },
+                "modified": {
+                    "type": "string",
+                    "title": "Modified",
+                    "format": "date-time"
+                }
+            },
+            "required": ["name", "attribute", "value", "sourceId"]
+        },
+        "relations": {
+            "source": {
+                "target": "source",
+                "title": "Source"
+            }
+        }
+    },
+    {
+        "identifier": "access-profile",
+        "title": "SailPoint Access Profile",
+        "icon": "UserGroup",
+        "schema": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name"
+                },
+                "description": {
+                    "type": "string",
+                    "title": "Description"
+                },
+                "sourceId": {
+                    "type": "string",
+                    "title": "Source ID"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "title": "Enabled"
+                },
+                "owner": {
+                    "type": "string",
+                    "title": "Owner"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "title": "Owner ID"
+                },
+                "requestable": {
+                    "type": "boolean",
+                    "title": "Requestable"
+                },
+                "revocable": {
+                    "type": "boolean",
+                    "title": "Revocable"
+                },
+                "created": {
+                    "type": "string",
+                    "title": "Created",
+                    "format": "date-time"
+                },
+                "modified": {
+                    "type": "string",
+                    "title": "Modified",
+                    "format": "date-time"
+                }
+            },
+            "required": ["name", "sourceId"]
+        },
+        "relations": {
+            "source": {
+                "target": "source",
+                "title": "Source"
+            },
+            "owner": {
+                "target": "identity",
+                "title": "Owner"
+            }
+        }
+    },
+    {
+        "identifier": "role",
+        "title": "SailPoint Role",
+        "icon": "Crown",
+        "schema": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name"
+                },
+                "description": {
+                    "type": "string",
+                    "title": "Description"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "title": "Enabled"
+                },
+                "owner": {
+                    "type": "string",
+                    "title": "Owner"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "title": "Owner ID"
+                },
+                "requestable": {
+                    "type": "boolean",
+                    "title": "Requestable"
+                },
+                "revocable": {
+                    "type": "boolean",
+                    "title": "Revocable"
+                },
+                "created": {
+                    "type": "string",
+                    "title": "Created",
+                    "format": "date-time"
+                },
+                "modified": {
+                    "type": "string",
+                    "title": "Modified",
+                    "format": "date-time"
+                }
+            },
+            "required": ["name"]
+        },
+        "relations": {
+            "owner": {
+                "target": "identity",
+                "title": "Owner"
+            }
+        }
+    },
+    {
+        "identifier": "source",
+        "title": "SailPoint Source",
+        "icon": "Database",
+        "schema": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name"
+                },
+                "description": {
+                    "type": "string",
+                    "title": "Description"
+                },
+                "connector": {
+                    "type": "string",
+                    "title": "Connector"
+                },
+                "connectorClass": {
+                    "type": "string",
+                    "title": "Connector Class"
+                },
+                "connectorName": {
+                    "type": "string",
+                    "title": "Connector Name"
+                },
+                "type": {
+                    "type": "string",
+                    "title": "Type"
+                },
+                "category": {
+                    "type": "string",
+                    "title": "Category"
+                },
+                "owner": {
+                    "type": "string",
+                    "title": "Owner"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "title": "Owner ID"
+                },
+                "clusterId": {
+                    "type": "string",
+                    "title": "Cluster ID"
+                },
+                "managementWorkgroup": {
+                    "type": "string",
+                    "title": "Management Workgroup"
+                },
+                "healthy": {
+                    "type": "boolean",
+                    "title": "Healthy"
+                },
+                "status": {
+                    "type": "string",
+                    "title": "Status"
+                },
+                "since": {
+                    "type": "string",
+                    "title": "Since",
+                    "format": "date-time"
+                },
+                "created": {
+                    "type": "string",
+                    "title": "Created",
+                    "format": "date-time"
+                },
+                "modified": {
+                    "type": "string",
+                    "title": "Modified",
+                    "format": "date-time"
+                }
+            },
+            "required": ["name", "connector"]
+        },
+        "relations": {
+            "owner": {
+                "target": "identity",
+                "title": "Owner"
+            },
+            "cluster": {
+                "target": "source",
+                "title": "Cluster"
+            }
+        }
+    }
+]

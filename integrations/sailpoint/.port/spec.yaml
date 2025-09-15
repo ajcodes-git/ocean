@@ -1,0 +1,58 @@
+description: SailPoint Identity Security Cloud integration for Port Ocean
+icon: SailPoint  # Should be one of the available icons in Port
+features:
+  - type: exporter
+    section: Identity & Access Management  # Should be one of the available sections in Port
+    resources:
+      - kind: identity
+      - kind: account
+      - kind: entitlement
+      - kind: access-profile
+      - kind: role
+      - kind: source
+configurations:
+  - name: tenantUrl
+    required: false
+    type: string
+    default: "https://demo.api.sailpoint.com"
+    description: "SailPoint tenant URL (e.g., https://{tenant}.api.sailpoint.com)"
+  - name: clientId
+    required: false
+    type: string
+    default: "demo_client_id"
+    sensitive: true
+    description: "OAuth 2.0 Client ID"
+  - name: clientSecret
+    required: false
+    type: string
+    default: "demo_client_secret"
+    sensitive: true
+    description: "OAuth 2.0 Client Secret"
+  - name: maxRetries
+    type: string
+    default: "3"
+    description: "Maximum number of retry attempts for API calls"
+  - name: baseDelay
+    type: string
+    default: "1.0"
+    description: "Base delay in seconds for exponential backoff"
+  - name: maxDelay
+    type: string
+    default: "60.0"
+    description: "Maximum delay in seconds between retries"
+  - name: backoffFactor
+    type: string
+    default: "2.0"
+    description: "Multiplier for exponential backoff"
+  - name: maxConcurrentRequests
+    type: string
+    default: "10"
+    description: "Maximum number of concurrent API requests"
+  - name: limit
+    type: string
+    default: "250"
+    description: "Number of items per page for pagination"
+  - name: webhookSecret
+    type: string
+    sensitive: true
+    description: "Secret for webhook HMAC signature verification"

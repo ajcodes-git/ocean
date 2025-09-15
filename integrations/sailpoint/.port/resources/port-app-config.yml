@@ -1,0 +1,153 @@
+resources:
+  - kind: identity
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .identifier
+          title: .title
+          blueprint: .blueprint
+          properties:
+            name: .properties.name
+            displayName: .properties.displayName
+            email: .properties.email
+            firstName: .properties.firstName
+            lastName: .properties.lastName
+            status: .properties.status
+            lifecycleState: .properties.lifecycleState
+            manager: .properties.manager
+            department: .properties.department
+            jobTitle: .properties.jobTitle
+            employeeNumber: .properties.employeeNumber
+            phoneNumber: .properties.phoneNumber
+            isManager: .properties.isManager
+            isProcessing: .properties.isProcessing
+            created: .properties.created
+            modified: .properties.modified
+          relations:
+            manager: .relations.manager
+
+  - kind: account
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .identifier
+          title: .title
+          blueprint: .blueprint
+          properties:
+            name: .properties.name
+            nativeIdentity: .properties.nativeIdentity
+            sourceId: .properties.sourceId
+            identityId: .properties.identityId
+            uuid: .properties.uuid
+            disabled: .properties.disabled
+            locked: .properties.locked
+            privileged: .properties.privileged
+            systemAccount: .properties.systemAccount
+            uncorrelated: .properties.uncorrelated
+            created: .properties.created
+            modified: .properties.modified
+          relations:
+            identity: .relations.identity
+            source: .relations.source
+
+  - kind: entitlement
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .identifier
+          title: .title
+          blueprint: .blueprint
+          properties:
+            name: .properties.name
+            attribute: .properties.attribute
+            value: .properties.value
+            schema: .properties.schema
+            sourceId: .properties.sourceId
+            privileged: .properties.privileged
+            cloudGoverned: .properties.cloudGoverned
+            created: .properties.created
+            modified: .properties.modified
+          relations:
+            source: .relations.source
+
+  - kind: access-profile
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .identifier
+          title: .title
+          blueprint: .blueprint
+          properties:
+            name: .properties.name
+            description: .properties.description
+            sourceId: .properties.sourceId
+            enabled: .properties.enabled
+            owner: .properties.owner
+            ownerId: .properties.ownerId
+            requestable: .properties.requestable
+            revocable: .properties.revocable
+            created: .properties.created
+            modified: .properties.modified
+          relations:
+            source: .relations.source
+            owner: .relations.owner
+
+  - kind: role
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .identifier
+          title: .title
+          blueprint: .blueprint
+          properties:
+            name: .properties.name
+            description: .properties.description
+            enabled: .properties.enabled
+            owner: .properties.owner
+            ownerId: .properties.ownerId
+            requestable: .properties.requestable
+            revocable: .properties.revocable
+            created: .properties.created
+            modified: .properties.modified
+          relations:
+            owner: .relations.owner
+
+  - kind: source
+    selector:
+      query: 'true'
+    port:
+      entity:
+        mappings:
+          identifier: .identifier
+          title: .title
+          blueprint: .blueprint
+          properties:
+            name: .properties.name
+            description: .properties.description
+            connector: .properties.connector
+            connectorClass: .properties.connectorClass
+            connectorName: .properties.connectorName
+            type: .properties.type
+            category: .properties.category
+            owner: .properties.owner
+            ownerId: .properties.ownerId
+            clusterId: .properties.clusterId
+            managementWorkgroup: .properties.managementWorkgroup
+            healthy: .properties.healthy
+            status: .properties.status
+            since: .properties.since
+            created: .properties.created
+            modified: .properties.modified
+          relations:
+            owner: .relations.owner
+            cluster: .relations.cluster
